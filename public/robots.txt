@@ -1,0 +1,6 @@
+# robots.txt for http://www.traduson.fr/
+
+User-agent: *
+Disallow: /modification
+Disallow: /lyrics
+Disallow: /user

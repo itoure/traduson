@@ -1,0 +1,49 @@
+<div class="well text-head"><strong>Fiche</strong></div>
+<div class="thumb-detail">
+	<img width="120px" class="" src="<?php echo ($this->lyrics['lyr_image'] ? $this->baseUrl('media/img/lyrics/'.$this->lyrics['lyr_image']) : $this->baseUrl('media/img/default_album.png')) ?>" alt="<?php echo $this->lyrics['art_name'].' '.$this->lyrics['lyr_title']?>">
+</div>
+<ul class="text-left">
+	<li>Artiste : <strong><?php echo $this->lyrics['art_name']?></strong></li>
+	<li>Chanson : <strong><?php echo $this->lyrics['lyr_title']?></strong></li>
+	<?php if($this->lyrics['lyr_feat']):?>
+		<li>Featuring : <strong><?php echo $this->lyrics['lyr_feat'] ?></strong></li>
+	<?php endif;?>
+	<?php if($this->lyrics['lyr_album']):?>
+		<li>Album : <strong><?php echo $this->lyrics['lyr_album'] ?></strong></li>
+	<?php endif;?>
+	<li>Genre : <strong><?php echo $this->lyrics['gen_label']?></strong></li>
+	<?php if($this->lyrics['lyr_year']):?>
+		<li>Année : <strong><?php echo $this->lyrics['lyr_year'] ?></strong></li>
+	<?php endif;?>
+	
+	<?php if($this->lyrics['lyr_producer']):?>
+		<li>Producteur : <strong><?php echo $this->lyrics['lyr_producer'] ?></strong></li>
+	<?php endif;?>
+	<?php if($this->identity): ?>
+		<li><a href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'translate', 'id'=> $this->lyrics['lyr_id'], 'url'=>$this->lyrics['lyr_url']),'translate-lyrics',true) ?>" ><strong>Modifier La Traduction</strong></a></li>
+	<?php endif;?>
+	</ul>
+<div class="well text-head"><strong>Autres Traduction</strong></div>
+<ul class="text-left">
+	<?php foreach($this->listeLyricsArtiste as $l):?>
+		<li>
+			<a href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'detail', 'id'=> $l['lyr_id'], 'url'=>$l['lyr_url']),'detail-lyrics',true) ?>">
+				<?php echo $l['lyr_title']?>
+			</a>
+		</li>
+	<?php endforeach;?>
+</ul>
+<hr/>
+<div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5725633709588443";
+/* ts_square_250 */
+google_ad_slot = "3747152225";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>

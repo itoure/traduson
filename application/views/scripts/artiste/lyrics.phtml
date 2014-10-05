@@ -1,0 +1,19 @@
+<div class="row-fluid list-artiste">
+    
+    <div class="span12">
+    	<table class="table table-hover">
+      	<?php foreach($this->listeLyrics as $lyrics):?>
+      	  <tr>
+      	  	<td class="td-liste-lyrics">
+	      	  	<span class="label">
+				  	<a href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'detail', 'url'=>$lyrics['lyr_url'], 'id'=>$lyrics['lyr_id']),'detail-lyrics',true) ?>">
+				  		<?php echo $lyrics['lyr_title']?>
+				  	</a>
+			  	</span>
+      	  	</td>
+      	  </tr>
+		  <?php endforeach;?>
+		</table>
+    </div>
+
+</div>

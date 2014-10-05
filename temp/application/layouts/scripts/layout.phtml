@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" href="<?php echo $this->baseUrl('media/img/favicon.png'); ?>" rel="icon" />
+    <?php echo $this->headTitle() ?>
+    <?php echo $this->headMeta() ?>
+    <?php echo $this->headLink()->setStylesheet($this->baseUrl('media/css/bootstrap.css')) ?>
+	<?php echo $this->headLink()->setStylesheet($this->baseUrl('media/css/bootstrap-responsive.css')) ?>
+	<?php echo $this->headLink()->setStylesheet($this->baseUrl('media/css/style.css')) ?>
+	<?php //echo $this->headScript()->setFile($this->baseUrl('media/js/json2.js','text/javascript')) ?>
+	<?php echo $this->headScript()->setFile($this->baseUrl('media/js/jquery-1.10.2.js','text/javascript')) ?>
+	<?php echo $this->headScript()->setFile($this->baseUrl('media/js/bootstrap.js','text/javascript')) ?>
+	<?php echo $this->headScript()->setFile($this->baseUrl('media/js/jquery.validate.js','text/javascript')) ?>
+	<?php echo $this->headScript()->setFile($this->baseUrl('media/js/lyrics.js','text/javascript')) ?>
+	<?php echo $this->headScript()->setFile($this->baseUrl('media/js/user.js','text/javascript')) ?>
+  </head>
+  <body>
+  <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-18685593-5', 'traduson.fr');
+	  ga('send', 'pageview');
+  </script>
+  
+  <?php echo $this->partial('modal-sign-in.phtml'); ?>
+  <?php echo $this->partial('modal-sign-up.phtml'); ?>
+  
+    <div class="row-fluid">
+	    <div class="span12 header">
+			<a href="<?php echo $this->url(array(),'home',true) ?>">
+				<img src="<?php echo $this->baseUrl('media/img/logo.jpg'); ?>" alt="logo traduson" class="" width="235px">
+			</a>
+		  	<div class="user-box btn-toolbar pull-right">
+				<?php if($this->identity): ?>
+			    		<div class="btn-group">
+			    		<a href="#" role="button" class="btn btn-warning" data-toggle="modal"><?php echo $this->identity->usr_login ?></a>
+			    		<a href="<?php echo $this->url(array('controller'=>'user', 'action'=>'logout'),'default',true) ?>" role="button" class="btn btn-inverse" data-toggle="modal"><i class="icon-remove icon-white"></i></a>
+			  			</div>
+			  		</div>
+				<?php else: ?>
+			    		<div class="btn-group">
+			    		<a href="#signUpModal" role="button" class="btn btn-warning" data-toggle="modal">Inscription</a>
+			    		<a href="#signInModal" role="button" class="btn" data-toggle="modal">Connexion</a>
+			  			</div>
+				<?php endif; ?>
+		  	</div>
+			
+		</div>
+    </div>
+    
+    <div class="clearfix"></div>
+    
+    <div class="container-fluid">
+    	
+		<div class="navbar">
+		  <div class="navbar-inner">
+		  	<form class="form-search navbar-form pull-right">
+				<div class="input-append hide">
+				  	<input type="text" class="input-large search-query span2" placeholder="Rechercher">
+				  	<button type="submit" class="btn"><i class="icon-search"></i></button>
+			  	</div>
+			</form>
+		    <ul class="nav">
+		      <li class="active"><a href="<?php echo $this->url(array(),'home',true) ?>"><i class="icon-home"></i></a></li>
+		      <?php if($this->identity): ?>
+		      	<li class=""><a href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'add'),'add-lyrics',true) ?>">Ajouter Une Chanson</a></li>
+		      <?php else: ?>
+		      	<li class=""><a href="#signInModal" data-toggle="modal">Ajouter Une Chanson</a></li>
+		      <?php endif; ?>
+		      <li class="divider-vertical"></li>
+		      <li class=""><a href="<?php echo $this->url(array('controller'=>'artiste', 'action'=>'liste'),'liste-artiste',true) ?>">Artistes</a></li>
+		      <li class="divider-vertical"></li>
+		    </ul>
+		  </div>
+		</div>
+    	
+    	<div class="text-center main-pub hide">
+    		<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-5725633709588443";
+			/* ts_main */
+			google_ad_slot = "6409900620";
+			google_ad_width = 728;
+			google_ad_height = 90;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+    	</div>
+		
+		<div class="btn-add-song hide">
+			<a href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'add'),'default',true) ?>" role="button" class="btn btn-warning btn-block btn-large" ><strong>Ajouter Une Chanson</strong></a>
+    	</div>
+    	
+    	<?php echo $this->layout()->content; ?>
+    	
+		
+
+      	<footer>
+      		<hr>
+        	<p class="pull-right">it@p &copy; 2013 - <a href="http://www.aboutmymind.com/" target="_blank">AboutMyMind</a></p>
+      	</footer>
+      
+    </div>
+    
+  </body>
+</html>

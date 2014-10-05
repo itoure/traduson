@@ -1,0 +1,54 @@
+<div id="signUpModal" class="modal hide fade">
+<form method="post" id="formSignUp" class="form-horizontal" action="<?php echo $this->url(array('controller'=>'user', 'action'=>'sign-up'),'default',true) ?>">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Inscription</h3>
+  </div>
+  
+  <div id="alertEmailExist" class="alert hide"><strong>Oups!</strong> Cet email est déjà utilisé par un membre du site.</div>
+  
+  <div class="modal-body">
+      <div class="control-group">
+	    <label class="control-label" for="inputEmail">Pseudo <span class="text-error">*</span></label>
+	    <div class="controls">
+	      <input type="text" id="login" name="login" placeholder="Pseudo" required>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputEmail">Email <span class="text-error">*</span></label>
+	    <div class="controls">
+	      <input type="text" id="email" name="email" placeholder="Email" required>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputPassword">Mot De Passe <span class="text-error">*</span></label>
+	    <div class="controls">
+	      <input type="password" id="password" name="password" placeholder="Mot De Passe" required>
+	    </div>
+	  </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">Fermer</a>
+    <button type="submit" class="btn btn-warning submitSignUp">S'Inscrire</button>
+  </div>
+</form>
+</div>
+
+<script>
+	
+	$("#formSignUp").validate({
+	      rules: {
+	         "login":{
+	            "required": true
+	         },
+	         "email":{
+		        "required": true,
+		        "email": true
+			 },
+			 "password":{
+			        "required": true
+			}
+	      }
+	  });
+	  
+</script>

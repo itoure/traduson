@@ -1,0 +1,67 @@
+<div class="alert alert-success <?php echo ($this->uok) ? show : hide ?>">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Bienvenue</strong> <?php echo $this->identity->usr_login ?> !
+</div>
+	
+<div class="row-fluid">
+    <div class="span4 well">
+    	<div class="well text-head"><strong>Derniers Ajouts</strong></div>
+      	<ul class="media-list">
+      	<?php foreach($this->listeLyrics as $lyrics):?>
+		  <li class="media">
+		    <a class="pull-left" href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'detail', 'id'=> $lyrics['lyr_id'], 'url'=>$lyrics['lyr_url']),'detail-lyrics',true) ?>">
+		      <img class="home-thumb" class="media-object" alt="<?php echo $lyrics['art_name'].' '.$lyrics['lyr_title']?>" src="<?php echo ($lyrics['lyr_image'] ? $this->baseUrl('media/img/lyrics/'.$lyrics['lyr_image']) : $this->baseUrl('media/img/default_album.png')) ?>">
+		    </a>
+		    <div class="media-body">
+		      	<h2 class="h2-home"><a href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'detail', 'id'=> $lyrics['lyr_id'], 'url'=>$lyrics['lyr_url']),'detail-lyrics',true) ?>"><?php echo $lyrics['lyr_title']?></a></h2>
+		    	<div><a href="<?php echo $this->url(array('controller'=>'artiste', 'action'=>'lyrics', 'id'=>$lyrics['art_id'], 'url'=>$lyrics['art_url']),'lyrics-artiste',true) ?>"><strong class="strong-home"><?php echo $lyrics['art_name']?></strong></a></div>
+		    </div>
+		    <span class="label label-inverse"><i class="icon-calendar icon-white"></i> <?php echo date('d/m/Y',strtotime($lyrics['lyr_create_date']))?></span>
+		  </li>
+		  <hr/>
+		<?php endforeach;?>
+
+		</ul>
+    </div>
+    <div class="span4 well">
+      <div class="well text-head"><strong>Les Plus Populaires</strong></div>
+      <ul class="media-list">
+      	<?php foreach($this->listePopularLyrics as $lyrics):?>
+		  <li class="media">
+		    <a class="pull-left" href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'detail', 'id'=> $lyrics['lyr_id'], 'url'=>$lyrics['lyr_url']),'detail-lyrics',true) ?>">
+		      <img class="home-thumb" class="media-object" alt="<?php echo $lyrics['art_name'].' '.$lyrics['lyr_title']?>" src="<?php echo ($lyrics['lyr_image'] ? $this->baseUrl('media/img/lyrics/'.$lyrics['lyr_image']) : $this->baseUrl('media/img/default_album.png')) ?>">
+		    </a>
+		    <div class="media-body">
+		      	<h2 class="h2-home"><a href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'detail', 'id'=> $lyrics['lyr_id'], 'url'=>$lyrics['lyr_url']),'detail-lyrics',true) ?>"><?php echo $lyrics['lyr_title']?></a></h2>
+		    	<div><a href="<?php echo $this->url(array('controller'=>'artiste', 'action'=>'lyrics', 'id'=>$lyrics['art_id'], 'url'=>$lyrics['art_url']),'lyrics-artiste',true) ?>"><strong class="strong-home"><?php echo $lyrics['art_name']?></strong></a></div>
+		    </div>
+		  	<span class="label label-success"><i class="icon-thumbs-up icon-white"></i> <?php echo $lyrics['lyr_up']?></span>
+		  </li>
+		  <hr/>
+		  <?php endforeach;?>
+
+		</ul>
+    </div>
+    <div class="span4 well">
+      <div class="well text-head"><strong>En Cours de Traduction</strong></div>
+      <ul class="media-list">
+      	<?php foreach($this->listeRequestLyrics as $lyrics):?>
+		  <li class="media">
+		  
+		    <a class="pull-left" href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>($this->identity ? 'translate' : 'detail'), 'id'=> $lyrics['lyr_id'], 'url'=>$lyrics['lyr_url']),($this->identity ? 'translate-lyrics' : 'detail-lyrics'),true) ?>">
+		      <img class="home-thumb" class="media-object" alt="<?php echo $lyrics['art_name'].' '.$lyrics['lyr_title']?>" src="<?php echo ($lyrics['lyr_image'] ? $this->baseUrl('media/img/lyrics/'.$lyrics['lyr_image']) : $this->baseUrl('media/img/default_album.png')) ?>">
+		    </a>
+		    <div class="media-body">
+		      	<h2 class="h2-home">
+			      	<a href="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>($this->identity ? 'translate' : 'detail'), 'id'=> $lyrics['lyr_id'], 'url'=>$lyrics['lyr_url']),($this->identity ? 'translate-lyrics' : 'detail-lyrics'),true) ?>"><?php echo $lyrics['lyr_title']?></a>
+			    </h2>
+		    	<div><a href="<?php echo $this->url(array('controller'=>'artiste', 'action'=>'lyrics', 'id'=>$lyrics['art_id'], 'url'=>$lyrics['art_url']),'lyrics-artiste',true) ?>"><strong class="strong-home"><?php echo $lyrics['art_name']?></strong></a></div>
+		    </div>
+		    <span class="label"><i class="icon-pencil icon-white"></i> <?php echo $lyrics['lyr_taux']?>%</span>
+		  </li>
+		  <hr/>
+		  <?php endforeach;?>
+
+		</ul>
+    </div>
+</div>

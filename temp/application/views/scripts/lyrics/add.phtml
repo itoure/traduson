@@ -1,0 +1,133 @@
+<div class="well">
+Indiquer les informations sur la musique puis traduisez les paroles.
+</div>
+<form id="formAddLyrics" class="form-horizontal" method="POST" enctype="multipart/form-data" action="<?php echo $this->url(array('controller'=>'lyrics', 'action'=>'add'),'default',true) ?>">
+      <div class="control-group">
+	    <label class="control-label" for="inputArtiste">Artiste <span class="text-error">*</span></label>
+	    <div class="controls">
+	      	<input type="text" name="artiste" id="artiste" placeholder="Artiste" data-provide="typeahead" autocomplete="off" required>
+	    	<span class="help-block">Artiste principal de la chanson.</span>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputTitle">Titre <span class="text-error">*</span></label>
+	    <div class="controls">
+	      	<input type="text" name="title" id="title" placeholder="Titre" data-provide="typeahead" autocomplete="off" required disabled>
+	    	<span class="help-block">Titre de la chanson.</span>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputFeat">Featuring</label>
+	    <div class="controls">
+	      <input type="text" name="feat" id="feat" placeholder="Featuring">
+	      <span class="help-block">Autres artistes en featuring. Séparer les nom par des virgules.</span>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputFeat">Album</label>
+	    <div class="controls">
+	      <input type="text" name="album" id="album" placeholder="Album">
+	      <span class="help-block">Nom de l'album ou de la mixtape.</span>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputGenre">Genre <span class="text-error">*</span></label>
+	    <div class="controls">
+	      	<select name="genre" id="genre" required>
+			  <option></option>
+			  <?php foreach($this->listeGenre as $genre):?>
+			  <option value="<?php echo $genre->gen_id?>"><?php echo $genre->gen_label?></option>
+			  <?php endforeach;?>
+			</select>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputFeat">Année</label>
+	    <div class="controls">
+	      <input type="text" name="year" id="year" placeholder="Year">
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputFeat">Producteur</label>
+	    <div class="controls">
+	      <input type="text" name="producer" id="producer" placeholder="Producteur">
+	      <span class="help-block">Nom du producteur.</span>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputImage">Image</label>
+	    <div class="controls">
+	      <input type="file" name="image" id="image" placeholder="Image">
+	      <span class="help-block">Pochette ou couverture de la musique.</span>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="inputYoutube">YouTube <span class="text-error">*</span></label>
+	    <div class="controls">
+	      <input type="text" name="youtube" id="youtube" placeholder="Lien YouTube" required>
+	      <span class="help-block">Indiquez ici le lien youtube du clip ou de l'audio. ATTENTION : uniquement les liens youtube sont autorisés. Cliquez <a href="#" class="searchYoutube"><strong>ICI</strong></a> pour trouver une vidéo youtube.</span>
+	    </div>
+	  </div>
+	  
+	  <div class="well controls">
+	  	<ul>
+	  		<li>Mettez ci-dessous les paroles de la musique que vous voulez traduire.</li>
+	  		<li>Mettez un titre à chaque paragraphe comme indiqué ci-dessous </li>
+	  	</ul>
+	  </div>
+	  
+	  <div class="control-group">
+	    <label class="control-label" for="inputLyrics">Paroles <span class="text-error">*</span></label>
+	    <div class="controls">
+<textarea rows="20" class="span8" name="lyrics" id="lyrics" required>
+[Intro]
+[Pont]
+[Couplet 1]
+[Couplet 2]
+[Couplet 3]
+</textarea>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	  	<div class="controls">
+	    <label class="radio">
+		  <input type="radio" name="radioHaveToTranslate" id="optionsRadios1" value="0" checked>
+		  Je traduis les paroles immédiatement
+		</label>
+		<label class="radio">
+		  <input type="radio" name="radioHaveToTranslate" id="optionsRadios2" value="1">
+		  Je souhaite que les membres du site traduisent les paroles
+		</label>
+		</div>
+	  </div>
+	  <div class="control-group">
+	    <div class="controls">
+	      <button type="submit" class="btn btn-warning btn-large">Valider</button>
+	    </div>
+	  </div>
+</form>
+
+<script>
+	
+	$("#formAddLyrics").validate({
+	      rules: {
+	         "artiste":{
+	            "required": true,
+	         },
+	         "title":{
+		        "required": true,
+			 },
+			 "genre":{
+		        "required": true,
+		        "number":true,
+		     },
+		     "youtube":{
+		        "required": true,
+		     },
+		     "lyrics":{
+			    "required": true,
+			  }
+	      }
+	  });
+	  
+</script>

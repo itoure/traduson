@@ -1,0 +1,13 @@
+<div class="row-fluid list-artiste">
+    
+    <div class="span12 well">
+      	<?php foreach($this->listeArtiste as $artiste):?>
+		  <span class="label label-artiste">
+		  	<a href="<?php echo $this->url(array('controller'=>'artiste', 'action'=>'lyrics', 'url'=>$artiste['art_url'], 'id'=>$artiste['art_id']),'lyrics-artiste',true) ?>">
+		  	<?php echo $artiste['art_name']?>
+		  	</a>
+		  </span>
+		  <?php endforeach;?>
+    </div>
+
+</div>

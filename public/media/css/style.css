@@ -1,0 +1,95 @@
+.txt-logo-last {
+	color:#faa732;
+}
+.txt-logo-first {
+	color:#fff;
+}
+.txt-logo {
+}
+.user-box {
+}
+.header {
+	background-color:#363636;
+	padding:10px;
+}
+.main-pub {
+	margin-bottom:50px;
+}
+.error{
+	
+}
+.btn-add-song {
+	margin:25px;
+}
+
+.list-artiste a {
+	color:#fff;
+	font-size:15px;
+}
+
+.td-liste-lyrics {
+	text-align: center!important;  
+}
+
+.block-btn-comment {
+	margin:50px 0 50px 0;
+}
+.thumb-detail{
+	margin:0 0 10px 0;
+}
+footer{
+	margin:75px 0 0 0;
+}
+.text-warning a{
+	color:#C09853;
+}
+.btn-valider-translate-down{
+	margin:75px 0 0 0;
+}
+.btn-valider-translate-up{
+	margin:0 0 20px 0;
+}
+.text-head{
+	color:#FAA732;
+}
+.text-rate{
+	margin-bottom:10px;
+}
+
+.h2-home {
+	margin:0px;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.strong-home {
+	font-weight:normal;
+}
+
+.h1-lyrics{
+	font-size: 30px;
+}
+
+.txt-signToModif {
+	margin:10px 0 10px 0;
+}
+
+.video {
+	margin:0 0 30px 0;
+}
+
+.label-artiste {
+	margin-bottom:20px;
+}
+
+.searchYoutube {
+	cursor: pointer;
+}
+
+.home-thumb {
+	width:100px;
+}
+
+.thumb-detail-pic {
+	width:120px;
+}
